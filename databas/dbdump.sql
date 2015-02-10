@@ -4,7 +4,7 @@ CREATE TABLE `comments` (
   `body` tinytext NOT NULL,
   `username` varchar(20) NOT NULL,
   `post_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
+  `created_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `post_id` (`post_id`),
