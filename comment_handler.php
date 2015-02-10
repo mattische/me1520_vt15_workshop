@@ -1,13 +1,13 @@
 <?php
 session_start();
-
+include("header.php");
+include("db.php");
 
 if(!isset($_SESSION['username'])) {
     echo "You must be logged in to do that!";
     echo "<a href=index.php>Index</a>";
 }
 
-include("db.php");
 
 $mysql = connect();
 
