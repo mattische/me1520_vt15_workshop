@@ -16,7 +16,7 @@ $result = $mysqli->query($sql);
 
 while($obj = $result->fetch_object()) {
   echo "<h3>" . $obj->heading . "</h3> ";
-  echo $obj->created_at . " by <br>" . $obj->username."<br>";
+  echo $obj->created_at . " by <br><a href=view_post.php?username=" . $obj->username.">".$obj->username."</a><br>";
   echo "<a href=view_post.php?pid=".$obj->id.">view post</a>";
 }
 ?>

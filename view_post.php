@@ -3,9 +3,14 @@ session_start();
 include("header.php");
 include("db.php");
 
+$sql = "";
+
+if(isset($_GET['pid']))
+    $sql = "SELECT id, heading, body, created_at, username FROM posts WHERE id=" . $_GET['pid'];
+elseif(isset($_GET['username']))
+    $sql = "SELECT id, heading, body, created_at, username FROM posts WHERE username='" . $_GET['username']."'";
 
 
-$sql = "SELECT id, heading, body, created_at, username FROM posts WHERE id=" . $_GET['pid'];
 $mysqli = connect();
 
 $result = $mysqli->query($sql);

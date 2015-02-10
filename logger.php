@@ -18,11 +18,9 @@ function login_form()
         
         </form>";
     }
-    return "<form action='logout.php' method='post'>
+    return "<a href=new_post.php>New Post</a><form action='logout.php' method='post'>
         logged in as ".$_SESSION['username']."
-
-        <input type='submit' value='logout' />
-        
+        <input primary type='submit' value='logout' />
         </form>";
 }
 
