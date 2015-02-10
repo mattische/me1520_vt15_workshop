@@ -13,14 +13,19 @@ if(strlen($_POST['username']) > 3 && strlen($_POST['pass']) > 3)
     $res = $mysqli->query("SELECT username, password FROM users WHERE username='".$_POST['username']."' AND password='".$_POST['pass']."'");
 
    if($res->num_rows == 1)
-     {
+   {
        $_SESSION['username'] = $_POST['username'];
        echo "HOOOOORAY";
+       
+       for ($row_no = $res->num_rows - 1; $row_no >= 0; $row_no--) {
+            $row = $res->fetch_assoc();
+            echo " Welcome " . $row['username'] . "\n";
+        }
     }
-    for ($row_no = $res->num_rows - 1; $row_no >= 0; $row_no--) {
-      $row = $res->fetch_assoc();
-      echo " Welcome " . $row['username'] . "\n";
+    else {
+        echo "Wrong username or password. Please try <a href=index.php>login</a> again";
     }
+    
 }
 else
   echo "NOT OK";
