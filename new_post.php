@@ -20,7 +20,7 @@ if(check_login()) {
 
         $sql = "INSERT INTO posts (heading, body, username, created_at) VALUES('".$_POST['heading']."', '".$_POST['body']."','".$_SESSION['username']."', NOW())";
        $mysql->query($sql);
-        header("Location: index.php");
+        header("Location: view_post.php?username=".$_SESSION['username']);
     }
     
 }

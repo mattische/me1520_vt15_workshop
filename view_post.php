@@ -8,7 +8,7 @@ $sql = "";
 if(isset($_GET['pid']))
     $sql = "SELECT id, heading, body, created_at, username FROM posts WHERE id=" . $_GET['pid'];
 elseif(isset($_GET['username']))
-    $sql = "SELECT id, heading, body, created_at, username FROM posts WHERE username='" . $_GET['username']."'";
+    $sql = "SELECT id, heading, body, created_at, username FROM posts WHERE username='" . $_GET['username']."' ORDER BY created_at DESC";
 
 
 $mysqli = connect();
