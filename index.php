@@ -16,7 +16,7 @@ password:<br>
 </form>";
 
 
-$sql = "SELECT * FROM posts ORDER BY created_at DESC";
+$sql = "SELECT id, heading, created_at, username FROM posts ORDER BY created_at DESC";
 $mysqli = connect();
 
 $result = $mysqli->query($sql);
@@ -24,8 +24,6 @@ $result = $mysqli->query($sql);
 while($obj = $result->fetch_object()) {
   echo "<h3>" . $obj->heading . "</h3> ";
   echo $obj->created_at . " by <br>" . $obj->username."<br>";
-  echo $obj->body . "<br>";
-  echo "<a href=comment.php>comment</a>";
+  echo "<a href=view_post.php?pid=".$obj->id.">view post</a>";
 }
-/* This is not a comment, please try later */
 ?>
