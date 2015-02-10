@@ -1,19 +1,12 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include("db.php");
-echo "WELCOME TO DA AMAZING BLOGZER<br>
-<form action='login.php' method='post'>
-Username:<br>
-<input required type='text' name='username' />
-<br>
-password:<br>
-<input required type='password' name='pass' />
-<br />
-<input type='submit' value='login' />
+include("header.php");
 
-</form>";
+include("db.php");
+
 
 
 $sql = "SELECT id, heading, created_at, username FROM posts ORDER BY created_at DESC";

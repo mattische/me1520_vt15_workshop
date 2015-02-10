@@ -17,15 +17,14 @@ while($obj = $result->fetch_object()) {
 
 //COMMENT FORM
 if(isset($_SESSION['username'])) {
-    echo "<form action='xyz.php' method='post'>
-    <textarea name='comment'></textarea><br>
+    echo "<form action='comment_handler.php' method='post'>
+    <input type='hidden' name='pid' value='". $_GET['pid']."'>
+    <textarea required name='comment'></textarea><br>
     <input type='submit' value='comment' />
     
     </form>";
 }
 //END COMMENT FORM
-
-
 
 
 
