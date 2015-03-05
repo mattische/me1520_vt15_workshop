@@ -3,7 +3,24 @@ ini_set('display_errors','on');
 include("config/includes.php");
 
 
+//HUR SKA VI KUNNA 'LADDA' ANDRA Controllers?
+//Kanske titta på switch?
 
-$rm = new RecepieModel();
-print_r($rm->getAll());
+$rc = new RecepieController();
+$rc->getAll();
+
+$rc = new UserController();
+$rc->getAll();
+
+$rc = new RestaurantController();
+$rc->getAll();
+
+
+
+
+if(!empty($_GET))
+{
+	$rc->getOne($_GET['rip']);
+}
+
 ?>

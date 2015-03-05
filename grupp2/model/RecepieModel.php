@@ -17,6 +17,12 @@ class RecepieModel extends BaseModel
 			$rows[] = array("id" => $row['id'], "name" => $row['name']);
 		return $rows;
 	}
+
+	function getOne($id) {
+		$result = $this->connection->query("SELECT id, name, description, author FROM recepies WHERE id=".$id);
+		$row = $result->fetch_assoc();
+		return $row;
+	}
 }
 
 
